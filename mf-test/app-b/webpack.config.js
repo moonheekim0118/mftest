@@ -1,16 +1,17 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 module.exports = {
-  entry: "./src/index.ts",
+  entry: "./src/index.tsx",
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "index.js",
-    libraryTarget: "commonjs2",
-    library: "appB",
+    filename: "bundle.js",
+    publicPath: "/",
   },
+  mode: "development",
   externals: {
-    react: "commonjs2 react",
+    react: "commonjs2",
   },
   optimization: {
     minimize: false,
@@ -29,7 +30,7 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "app_b",
+      name: "app_c",
       remotes: {
         app_c: "app_c@http://localhost:5173/remoteEntry.js",
       },
@@ -43,6 +44,9 @@ module.exports = {
           requiredVersion: false,
         },
       },
+    }),
+    new HtmlWebpackPlugin({
+      template: "./index.html",
     }),
   ],
   externals: {

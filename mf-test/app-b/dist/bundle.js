@@ -2,6 +2,20 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ 338:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+
+var m = __webpack_require__(415);
+if (true) {
+  exports.createRoot = m.createRoot;
+  exports.hydrateRoot = m.hydrateRoot;
+} else { var i; }
+
+
+/***/ }),
+
 /***/ 577:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
@@ -43,7 +57,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const react_1 = __importDefault(__webpack_require__(953));
+const react_1 = __importDefault(__webpack_require__(170));
 const RemoteButton = react_1.default.lazy(() => Promise.resolve().then(() => __importStar(__webpack_require__(597))));
 const App = () => (react_1.default.createElement(react_1.default.Suspense, { fallback: "Loading Remote Button..." },
     react_1.default.createElement("div", null,
@@ -54,7 +68,7 @@ exports["default"] = App;
 
 /***/ }),
 
-/***/ 156:
+/***/ 900:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -62,17 +76,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.AppB = void 0;
+const react_1 = __importDefault(__webpack_require__(170));
+const client_1 = __webpack_require__(338);
 const App_1 = __importDefault(__webpack_require__(577));
-exports.AppB = App_1.default;
+const root = (0, client_1.createRoot)(document.getElementById("root"));
+root.render(react_1.default.createElement(App_1.default, null));
 
-
-/***/ }),
-
-/***/ 953:
-/***/ ((module) => {
-
-module.exports = require("react");
 
 /***/ }),
 
@@ -93,6 +102,20 @@ module.exports = new Promise((resolve, reject) => {
 		reject(__webpack_error__);
 	}, "app_c");
 }).then(() => (app_c));
+
+/***/ }),
+
+/***/ 170:
+/***/ ((module) => {
+
+module.exports = react;
+
+/***/ }),
+
+/***/ 415:
+/***/ ((module) => {
+
+module.exports = react-dom;
 
 /***/ })
 
@@ -137,7 +160,7 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 	/* webpack/runtime/load script */
 /******/ 	(() => {
 /******/ 		var inProgress = {};
-/******/ 		var dataWebpackPrefix = "appB:";
+/******/ 		var dataWebpackPrefix = "app-b:";
 /******/ 		// loadScript function to load a script via script tag
 /******/ 		__webpack_require__.l = (url, done, key, chunkId) => {
 /******/ 			if(inProgress[url]) { inProgress[url].push(done); return; }
@@ -201,7 +224,7 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 			var warn = (msg) => {
 /******/ 				if (typeof console !== "undefined" && console.warn) console.warn(msg);
 /******/ 			};
-/******/ 			var uniqueName = "appB";
+/******/ 			var uniqueName = "app-b";
 /******/ 			var register = (name, version, factory, eager) => {
 /******/ 				var versions = scope[name] = scope[name] || {};
 /******/ 				var activeVersion = versions[version];
@@ -235,8 +258,7 @@ module.exports = new Promise((resolve, reject) => {
 /******/ 	// module cache are used so entry inlining is disabled
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
-/******/ 	var __webpack_exports__ = __webpack_require__(156);
-/******/ 	module.exports.appB = __webpack_exports__;
+/******/ 	var __webpack_exports__ = __webpack_require__(900);
 /******/ 	
 /******/ })()
 ;
